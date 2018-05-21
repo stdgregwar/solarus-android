@@ -77,7 +77,7 @@ void print_help(const Arguments& args) {
 
 }  // Anonymous namespace.
 
-}  // namespace Solarus.
+}  // namespace SolarusEngine.
 
 /**
  * \brief Usual entry point of the program.
@@ -111,24 +111,8 @@ int main(int argc, char** argv) {
   using namespace Solarus;
 
   Debug::set_abort_on_die(true);  // Better for debugging (get a callstack).
-
-  // Store the command-line arguments.
-  char* args_forged[] = {
-            "solarus",
-            "assets",
-            "-TYPOno-audio"
-    };
-  const Arguments args(3, args_forged);
-
-  // Check the -help option.
-  if (args.has_argument("-help")) {
-    // Print a help message.
-    print_help(args);
-  }
-  else {
-    // Run the main loop.
-    MainLoop(args).run();
-  }
+  const Arguments args(argc, argv);
+  MainLoop(args).run();
 
   return 0;
 }

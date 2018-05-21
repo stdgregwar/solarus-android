@@ -2,8 +2,6 @@
 
 This repo contains a AndroidStudio/gradle project building solarus and its dependencies with ndkBuild and make a SDLActity based appplication.
 
-Engine payload is located under app/src/main/assets and should be a valid data.solarus file, as loaded by the engine.
-
 ## Things that works
 
 * Video

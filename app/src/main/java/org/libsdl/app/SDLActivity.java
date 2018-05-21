@@ -746,7 +746,8 @@ public class SDLActivity extends Activity {
      */
     public static boolean showTextInput(int x, int y, int w, int h) {
         // Transfer the task to the main thread as a Runnable
-        return mSingleton.commandHandler.post(new ShowTextInputTask(x, y, w, h));
+        //return mSingleton.commandHandler.post(new ShowTextInputTask(x, y, w, h)); //TODO check this
+        return false;
     }
 
     public static boolean isTextInputEvent(KeyEvent event) {
