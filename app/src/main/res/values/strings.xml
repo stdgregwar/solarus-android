@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Solarus</string>
-    <string name="title_activity_quest_chooser">QuestChooser</string>
-    <string name="title_activity_quest_launcher">QuestLauncher</string>
+    <string name="title_activity_quest_launcher">Solarus</string>
 </resources>
