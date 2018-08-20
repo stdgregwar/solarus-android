@@ -3,6 +3,8 @@ package org.solarus_games.solarus;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.Toast;
+
 import org.libsdl.app.SDLActivity;
 
 public class SolarusEngine extends SDLActivity {
@@ -23,6 +25,11 @@ public class SolarusEngine extends SDLActivity {
                 || Build.MANUFACTURER.contains("Genymotion")
                 || (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic"))
                 || "google_sdk".equals(Build.PRODUCT);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getContext(),"Back pressed",Toast.LENGTH_SHORT).show();
     }
 
     @Override

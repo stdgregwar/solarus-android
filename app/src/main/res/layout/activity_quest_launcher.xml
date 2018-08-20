@@ -8,53 +8,66 @@
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
-        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
         android:layout_height="192dp"
-        android:layout_width="match_parent">
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:toolbarId="@+id/toolbar"
+            app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
             app:layout_scrollInterpolator="@android:anim/decelerate_interpolator"
-            app:contentScrim="?attr/colorPrimary">
+            app:toolbarId="@+id/toolbar">
 
             <ImageView
                 android:id="@+id/app_bar_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="addQuest"
-                android:scaleType="centerCrop"
-                android:src="@drawable/solarus_launcher" />
+                android:src="@drawable/solarus_logo_black_on_transparent" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_width="match_parent"></android.support.v7.widget.Toolbar>
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
         app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
 
-        <android.support.constraint.ConstraintLayout
+        <fragment
+            android:id="@+id/quest_list"
+            android:name="org.solarus_games.solarus.QuestFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".Solarus">
-
-        </android.support.constraint.ConstraintLayout>
+            android:layout_height="wrap_content" />
     </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/add_button"
+        android:id="@+id/add_file_button"
         android:layout_width="68dp"
         android:layout_height="66dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:clickable="true"
-        android:src="@android:drawable/ic_input_add"
+        android:src="@drawable/ic_file"
         android:tint="@color/colorWhite" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_folder_button"
+        android:layout_width="85dp"
+        android:layout_height="65dp"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:tint="@color/colorWhite"
+        app:layout_anchor="@+id/nestedScrollView"
+        app:layout_anchorGravity="bottom|left|center"
+        app:srcCompat="@drawable/ic_folder" />
+
 </android.support.design.widget.CoordinatorLayout>

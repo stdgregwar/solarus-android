@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:clickable="true"
+    android:minHeight="64dp"
+    app:layout_constraintHeight_max="64dp"
+    app:layout_constraintHeight_min="64dp">
+
+    <ImageView
+        android:id="@+id/quest_icon"
+        android:layout_width="63dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/default_icon" />
+
+    <LinearLayout
+        android:layout_width="219dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@+id/quest_icon"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/quest_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_weight="1"
+            android:text="Quest Title"
+            android:textAppearance="@style/TextAppearance.Compat.Notification.Title" />
+
+        <TextView
+            android:id="@+id/quest_short_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="1"
+            android:text="Short description..." />
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/launch_button"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="8dp"
+        android:clickable="true"
+        android:src="@android:drawable/ic_media_play"
+        app:elevation="4dp"
+        app:fabSize="normal" />
+
+</RelativeLayout>

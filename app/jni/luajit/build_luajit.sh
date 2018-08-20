@@ -8,7 +8,7 @@ cd "$SRCDIR"
 
 NDK=$ANDROID_NDK_ROOT
 NDKABI=8
-NDKVER=$NDK/toolchains/arm-linux-androideabi-4.6
+NDKVER=$NDK/toolchains/arm-linux-androideabi-4.9
 NDKP=$NDKVER/prebuilt/${host_os}-x86_64/bin/arm-linux-androideabi-
 NDKF="--sysroot $NDK/platforms/android-$NDKABI/arch-arm"
 
@@ -19,7 +19,7 @@ DESTDIR=$DIR/android/libs/armeabi
 mkdir -p $DESTDIR
 rm "$DESTDIR"/*.a
 make clean
-make HOST_CC="gcc -m32" CROSS=$NDKP TARGET_SYS=Linux TARGET_FLAGS="$NDKF"
+make HOST_CC="clang -m32" CROSS=$NDKP TARGET_SYS=Linux TARGET_FLAGS="$NDKF"
 
 if [ -f $SRCDIR/src/libluajit.a ]; then
     mv $SRCDIR/src/libluajit.a $DESTDIR/libluajit.a
@@ -31,7 +31,7 @@ DESTDIR=$DIR/android/libs/armeabi-v7a
 mkdir -p $DESTDIR
 rm "$DESTDIR"/*.a
 make clean
-make HOST_CC="gcc -m32" CROSS=$NDKP TARGET_SYS=Linux TARGET_FLAGS="$NDKF $NDKARCH"
+make HOST_CC="clang -m32" CROSS=$NDKP TARGET_SYS=Linux TARGET_FLAGS="$NDKF $NDKARCH"
 
 if [ -f $SRCDIR/src/libluajit.a ]; then
     mv $SRCDIR/src/libluajit.a $DESTDIR/libluajit.a
@@ -40,13 +40,13 @@ fi;
 # Android/x86, x86 (i686 SSE3), Android 4.0+ (ICS)
 NDKABI=14
 DESTDIR=$DIR/android/libs/x86
-NDKVER=$NDK/toolchains/x86-4.6
+NDKVER=$NDK/toolchains/x86-4.9
 NDKP=$NDKVER/prebuilt/${host_os}-x86_64/bin/i686-linux-android-
 NDKF="--sysroot $NDK/platforms/android-$NDKABI/arch-x86"
 mkdir -p $DESTDIR
 rm "$DESTDIR"/*.a
 make clean
-make HOST_CC="gcc -m32" CROSS=$NDKP TARGET_SYS=Linux TARGET_FLAGS="$NDKF"
+make HOST_CC="clang -m32" CROSS=$NDKP TARGET_SYS=Linux TARGET_FLAGS="$NDKF"
 
 if [ -f $SRCDIR/src/libluajit.a ]; then
     mv $SRCDIR/src/libluajit.a $DESTDIR/libluajit.a
